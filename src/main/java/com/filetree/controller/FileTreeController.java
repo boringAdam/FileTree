@@ -59,7 +59,6 @@ public class FileTreeController {
     }
 
     @GetMapping("/doc")
-    @ResponseBody
     public String getDocumentation(){
 
         return "redirect:/";

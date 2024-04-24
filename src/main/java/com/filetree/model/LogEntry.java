@@ -8,12 +8,14 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * The LogEntry object to store the necessary logging information.
+ */
 @Entity
 @JsonSerialize
 @Getter
 @Setter
 @Table(name = "log_entry")
-
 public class LogEntry {
 
     @Id

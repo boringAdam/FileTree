@@ -1,6 +1,5 @@
 package com.filetree.service;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.filetree.dto.LogEntryDTO;
@@ -15,6 +14,9 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * The LogEntryService handles the logging operations
+ */
 @Service
 public class LogEntryService {
 
@@ -25,6 +27,10 @@ public class LogEntryService {
         this.logEntryRepository = logEntryRepository;
     }
 
+    /**
+     * Returns all log entries and converts them into DTOs.
+     * @return Returns a list of LogEntryDTO objects representing the log entries.
+     */
     public List<LogEntryDTO> getAllLogEntries() {
         List<LogEntry> logEntries = logEntryRepository.findAll();
         return logEntries.stream()
@@ -43,10 +49,19 @@ public class LogEntryService {
                 .collect(Collectors.toList());
     }
 
+    /**
+     * Saves a log entry to the database.
+     * @param logEntry The logEntry object to be saved.
+     */
     public void saveLogEntry(LogEntry logEntry) {
         logEntryRepository.save(logEntry);
     }
 
+    /**
+     * Sorts the result string of a log entry in natural order.
+     * @param result The result string to be sorted.
+     * @return Returns a list of strings sorted in order.
+     */
     private List<String> sortResult(String result) {
         List<String> resultList = new ArrayList<>(Arrays.asList(result.split(",")));
 

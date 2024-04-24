@@ -7,6 +7,9 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * LogEntryDTO to pass log information in a nice way.
+ */
 @Getter
 @Setter
 public class LogEntryDTO {

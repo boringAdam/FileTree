@@ -1,6 +1,5 @@
 package com.filetree.controller;
 
-import com.filetree.model.LogEntry;
 import com.filetree.dto.LogEntryDTO;
 import com.filetree.service.FileService;
 import com.filetree.service.LogEntryService;
@@ -13,11 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Random;
 import java.util.Set;
-import java.time.LocalDateTime;
 
 /**
  * The FileTreeController class handles all the endpoints
@@ -51,6 +47,10 @@ public class FileTreeController {
         return fileService.findFiles(rootFolder, extension);
     }
 
+    /**
+     * Endpoint to get the /getunique endpoint's calling history
+     * @return Returns with a list of responses
+     */
     @GetMapping("/history")
     @ResponseBody
     public List<LogEntryDTO> getHistory() {
@@ -58,12 +58,20 @@ public class FileTreeController {
         return logEntryService.getAllLogEntries();
     }
 
+    /**
+     * Endpoint to get the Application Documentation
+     * @return Redirects to the root folder, where the documentation is
+     */
     @GetMapping("/doc")
     public String getDocumentation(){
 
         return "redirect:/";
     }
 
+    /**
+     * Endpoint to generate a random filesystem, to test the /getuniqe endpoint.
+     * @return Returns with a message if it was successful or not.
+     */
     @GetMapping("/gen")
     @ResponseBody
     public String generateFileStructure() {

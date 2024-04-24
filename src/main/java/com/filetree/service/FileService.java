@@ -36,7 +36,7 @@ public class FileService {
         searchFiles(new File(rootFolder), extension, filenames);
 
         String user = executeWhoAmICommand();
-        logRequest(user, LocalDateTime.now(), "root_older: " + rootFolder + ", extension: " + extension ,filenames.toString());
+        logRequest(user, LocalDateTime.now(), "root_folder: " + rootFolder + ", extension: " + extension ,filenames.toString());
 
         return filenames;
     }

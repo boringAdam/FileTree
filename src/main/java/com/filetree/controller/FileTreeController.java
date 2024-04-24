@@ -49,7 +49,7 @@ public class FileTreeController {
 
     /**
      * Endpoint to get the /getunique endpoint's calling history
-     * @return Returns with a list of responses
+     * @return Returns with a list of the responses
      */
     @GetMapping("/history")
     @ResponseBody

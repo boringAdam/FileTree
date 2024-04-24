@@ -27,7 +27,7 @@ public class FileService {
         searchFiles(new File(rootFolder), extension, filenames);
 
         String user = executeWhoAmICommand();
-        logRequest(user, LocalDateTime.now(), "Root Folder: " + rootFolder + ", Extension: " + extension ,filenames.toString());
+        logRequest(user, LocalDateTime.now(), "root_older: " + rootFolder + ", extension: " + extension ,filenames.toString());
 
         return filenames;
     }
@@ -62,8 +62,8 @@ public class FileService {
         Random random = new Random();
 
         if (random.nextBoolean()) {
-            int fileNameNumber = random.nextInt(10) + 1;
-            File file = new File(folder, fileNameNumber + ".txt");
+            char fileNameLetter = (char) (random.nextInt(26) + 'a');
+            File file = new File(folder, fileNameLetter + ".txt");
             file.createNewFile();
         }
 

@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @JsonSerialize
@@ -19,6 +20,11 @@ public class LogEntry {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Getter
+    @Setter
+    @Transient
+    private List<String> sortedResult;
+
     @Column(name = "user")
     private String user;
 
@@ -30,7 +36,6 @@ public class LogEntry {
 
     @Column(name = "result")
     private String result;
-
 
     public LogEntry() {
         // default
